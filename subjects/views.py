@@ -20,7 +20,6 @@ class SubjectView(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-
         serializer = SubjectSerilaizer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -60,6 +59,14 @@ class SubjectRegistrationView(APIView):
 
 
 class SubjectRegistrationDetailView(APIView):
+
+    def put(self, request, registration_id, format=None):
+        registration = get_object_or_404(SubjectRegistration, pk=registration_id)
+        serializer = SubjectRegistrationSerializer(registration, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, registration_id, format=None):
         registration = get_object_or_404(

@@ -26,13 +26,5 @@ class UserView(APIView):
 
 class TokenView(ObtainAuthToken):
     def post(self, request):
-        """
-        Returns the user token
-        ---
-        parameters:
-            - name: username
-            - name: password
-        """
-
         response = super(TokenView, self).post(request)
         return response
