@@ -24,5 +24,5 @@ urlpatterns = [
     path('teacher/', include('teachers.urls')),
     path('subject/', include('subjects.urls')),
     path('users/', include('accounts.urls')),
-    path('', include_docs_urls(title='Schooler')),
+    path('docs/', include_docs_urls(title='Schooler')),
 ]
