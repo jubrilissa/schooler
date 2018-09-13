@@ -13,7 +13,6 @@ class SubjectTestCase(APITestCase):
         self.client = APIClient()
         self.student_user = User.objects.create_user(
             password='johndoe1234', email='student@gmail.com', user_type='student')
-        print(f'I am the student id {self.student_user.id}')
         data = {'username': 'student@gmail.com', 'password': 'johndoe1234'}
 
         response = self.client.post(
